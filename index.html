@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <title>MVC</title>
+    <script src="Ax.js"></script>
+</head>
+<body>
+    <a href="#/">hello</a>
+    <a href="#/hi">hi</a>
+    <div data-view></div> <!-- element which will render view -->
+    <script>
+        //app include 'when' method which gives a special url->conf pair 
+        //when : @params(url, conf) return this
+        var app = Ax.module(); 
+        app.when('/', {
+            templateUrl:'views/hello.html',
+            locals:{
+                greet:'hello'
+            },
+            controller:function(){
+                alert('1111');
+            }
+        }).when('/hi', {
+            templateUrl:'views/hi.html',
+            locals:{
+                greet:'hi'
+            }
+        });
+    </script>
+</body>
+</html>
